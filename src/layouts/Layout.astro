@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const POSTER =
+  'https://customer-wa9cpywo3l4jte5c.cloudflarestream.com/1751493aaeed0260e9f42f3aa8ab5e1d/thumbnails/thumbnail.jpg?time=&height=600';
+
+const {
+  title = 'dwntwnsdl.com | Downtown Scottsdale, AZ • Old Town — $50,000',
+  description = 'dwntwnsdl.com is the downtown-first sister to sdldwntwn.com — the short domain for Downtown Scottsdale and Old Town. Offered at $50,000.',
+  ogImage = POSTER,
+  canonical = 'https://dwntwnsdl.com/',
+} = Astro.props;
+
+const siteName = 'dwntwnsdl.com';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Downtown Scottsdale, Old Town Scottsdale, dwntwnsdl, SDL downtown, Scottsdale AZ domain" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href={canonical} />
+    <meta name="google-site-verification" content="_DAYdwXgC3XexVXPZWzNZ72cEhG7Uigt0SDlUGlNGuQ" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": siteName,
+      "url": "https://dwntwnsdl.com",
+      "description": description
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": canonical,
+      "about": {
+        "@type": "Place",
+        "name": "Downtown Scottsdale",
+        "alternateName": "Old Town Scottsdale",
+        "address": { "@type": "PostalAddress", "addressLocality": "Scottsdale", "addressRegion": "AZ", "addressCountry": "US" }
+      },
+      "datePublished": "2026-09-18",
+      "dateModified": "2026-09-18"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "dwntwnsdl.com",
+      "description": "Downtown-first premium domain for Downtown Scottsdale / Old Town. Sister to sdldwntwn.com.",
+      "url": "https://dwntwnsdl.com",
+      "brand": { "@type": "Brand", "name": "dwntwnsdl.com" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://dwntwnsdl.com/#acquisition",
+        "price": "50000",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@type": "Organization", "name": "Desert Rich", "email": "sales@desertrich.com" }
+      }
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <slot />
+  </body>
+</html>
